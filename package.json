@@ -1,9 +1,6 @@
 {
   "dependencies": {
     "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.11.16",
-    "emotion": "^11.0.0",
-    "mongoose": "^7.1.0"
+    "@emotion/styled": "^11.11.0"
   }
 }
