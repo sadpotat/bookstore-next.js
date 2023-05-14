@@ -11,7 +11,7 @@ import BookList from "@/components/BookList";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ books }) {
-    return <BookList data={books} />;
+    return <BookList home={true} data={books} />;
 }
 
 export const getStaticProps = async () => {

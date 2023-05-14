@@ -8,19 +8,19 @@ import {
 import Link from "next/link";
 import React from "react";
 
-const BookItem = ({ title, id, author, imageURL, featured }) => {
+const BookItem = ({ title, id, author, imageURL, featured, home }) => {
     return (
         <Card
             sx={{
-                width: "200px",
+                width: "100%",
                 height: "100%",
                 borderRadius: 3,
                 ":hover": {
-                    boxShadow: "5px 5px 10px #b2dfdb",
+                    boxShadow: "5px 5px 10px #bbbbbb",
                 },
             }}
         >
-            <div style={{ width: "100%", height: "60%", position: "relative" }}>
+            <div style={{ width: "100%", height: "70%", position: "relative" }}>
                 {featured && (
                     <div
                         style={{
@@ -39,8 +39,8 @@ const BookItem = ({ title, id, author, imageURL, featured }) => {
                 )}
                 <img src={imageURL} alt={title} width="100%" height="100%" />
             </div>
-            <CardContent sx={{ width: "100%", height: "30%" }}>
-                <Typography gutterBottom variant="h5" component="div">
+            <CardContent sx={{ width: "100%", height: "20%" }}>
+                <Typography variant="h5" component="div" fontSize={18}>
                     {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
