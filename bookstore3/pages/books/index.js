@@ -1,3 +1,12 @@
 export default function BooksHome() {
-    return <h1>Books Page</h1>;
+    return (
+        <div>
+            <p>some text</p>
+            <p>some text</p>
+            <p>some text</p>
+            <p>some text</p>
+            <p>some text</p>
+            <h1>Books</h1>
+        </div>
+    );
 }

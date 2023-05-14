@@ -6,12 +6,12 @@ import {
     getBookByCategory,
     getFeaturedBooks,
 } from "@/api-helpers/frontend/utils";
+import BookList from "@/components/BookList";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ books }) {
-    console.log(books);
-    return <div>Home</div>;
+    return <BookList data={books} />;
 }
 
 export const getStaticProps = async () => {
