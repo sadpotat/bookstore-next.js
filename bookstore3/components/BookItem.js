@@ -6,11 +6,16 @@ import {
     Typography,
 } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 const BookItem = ({ title, id, author, imageURL, featured, home }) => {
+    const router = useRouter();
     return (
         <Card
+            onClick={() => {
+                router.push(`/books/${id}`);
+            }}
             sx={{
                 width: "100%",
                 height: "100%",
