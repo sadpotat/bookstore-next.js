@@ -6,14 +6,24 @@ const BookList = ({ data }) => {
     console.log(data);
     return (
         <div>
-            <Grid container>
+            <Grid padding={1} spacing={2} container>
                 {data.map((book) => (
-                    <Grid item key={book._id}>
+                    <Grid
+                        xs={6}
+                        sm={4}
+                        md={3}
+                        lg={2}
+                        height={"500px"}
+                        width={"100%"}
+                        item
+                        key={book._id}
+                    >
                         <BookItem
                             title={book.title}
                             author={book.author}
                             id={book._id}
                             imageURL={book.imageURL}
+                            featured={book.featured}
                         />
                     </Grid>
                 ))}

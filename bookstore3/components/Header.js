@@ -17,6 +17,7 @@ const Header = () => {
     };
     return (
         <AppBar
+            position="sticky"
             sx={{
                 bgcolor: "#00897b",
             }}
