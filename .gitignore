@@ -2,3 +2,4 @@ database*
 node_modules*
 bookstore3/test.csv
 bookstore3/test.py
+bookstore3/mongodb_db.json

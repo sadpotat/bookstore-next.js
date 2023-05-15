@@ -7,12 +7,13 @@ import { teal } from "@mui/material/colors";
 const Header = () => {
     const router = useRouter();
     const [value, setValue] = useState("");
+    const tabIndex = ["/", "/books"];
     const handleChange = (event, value) => {
         setValue(value);
         if (value === 0) {
             router.push("/");
         } else if (value === 2) {
-            router.push("books");
+            router.push("/books");
         }
     };
     return (
@@ -27,7 +28,7 @@ const Header = () => {
                 <Box display="flex" margin={"auto"}>
                     <Tabs
                         onChange={handleChange}
-                        value={value}
+                        value={tabIndex.includes(router.pathname) ? value : NaN}
                         textColor="inherit"
                     >
                         <Tab label="Home" sx={{ select: "#eeeeee" }} />
