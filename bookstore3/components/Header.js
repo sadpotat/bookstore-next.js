@@ -7,13 +7,17 @@ import { teal } from "@mui/material/colors";
 const Header = () => {
     const router = useRouter();
     const [value, setValue] = useState("");
-    const tabIndex = ["/", "/books"];
+    const tabIndex = ["/", "/category", "/books", "/books/add"];
     const handleChange = (event, value) => {
         setValue(value);
         if (value === 0) {
             router.push("/");
+        } else if (value === 1) {
+            router.push("/category");
         } else if (value === 2) {
             router.push("/books");
+        } else if (value === 3) {
+            router.push("/books/add");
         }
     };
     return (
@@ -34,6 +38,7 @@ const Header = () => {
                         <Tab label="Home" sx={{ select: "#eeeeee" }} />
                         <Tab label="Browse by Categories" />
                         <Tab label="All Books" />
+                        <Tab label="Add Book" />
                     </Tabs>
                 </Box>
             </Toolbar>

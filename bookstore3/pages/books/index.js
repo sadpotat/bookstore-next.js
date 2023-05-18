@@ -2,7 +2,21 @@ import { getAllBooks } from "@/api-helpers/frontend/utils";
 import BookList from "@/components/BookList";
 
 function BooksHome({ books }) {
-    return <BookList data={books} />;
+    return (
+        <div
+            style={{
+                backgroundColor: "white",
+                // width: "100%",
+                // height: "100%",
+                // position: "absolute",
+                // top: "5%",
+                // left: "10%",
+                // right: "10%",
+            }}
+        >
+            <BookList data={books} />
+        </div>
+    );
 }
 export default BooksHome;
 

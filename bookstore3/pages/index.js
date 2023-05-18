@@ -11,7 +11,22 @@ import BookList from "@/components/BookList";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ books }) {
-    return <BookList home={true} data={books} />;
+    return (
+        <div
+            style={{
+                backgroundColor: "white",
+                position: "absolute",
+                top: "63px",
+                right: "0px",
+                minHeight: "100vh",
+                left: "0px",
+            }}
+        >
+            <div style={{ margin: "auto", position: "absolute", top: "5%" }}>
+                <BookList home={true} data={books} />
+            </div>
+        </div>
+    );
 }
 
 export const getStaticProps = async () => {
