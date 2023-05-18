@@ -79,3 +79,12 @@ export const updateBook = async (id, book) => {
     const resData = await res.data;
     return resData;
 };
+
+export const deleteBook = async (id) => {
+    const res = await axios.delete(`http://localhost:3000/api/book/${id}`);
+    if (res.status !== 200) {
+        return new Error("Unable to Delete");
+    }
+    const resData = await res.data;
+    return resData;
+};

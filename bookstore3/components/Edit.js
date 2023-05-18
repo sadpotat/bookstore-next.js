@@ -17,7 +17,6 @@ const Edit = () => {
             .then((value) => console.log(value))
             .catch((err) => console.log(err));
     };
-    console.log("book", data);
     return (
         <div>
             {data ? (

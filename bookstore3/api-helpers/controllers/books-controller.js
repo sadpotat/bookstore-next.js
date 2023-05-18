@@ -129,7 +129,7 @@ export const deleteBook = async (req, res) => {
     let book;
     try {
         book = await Book.findByIdAndRemove(id);
-    } catch {
+    } catch (err) {
         return new Error(err);
     }
 
