@@ -5,10 +5,10 @@ export default function detailsPage() {
         <div
             style={{
                 backgroundColor: "white",
+                minHeight: "100vh",
                 position: "absolute",
-                top: "63px",
+                top: "50px",
                 right: "0px",
-                bottom: "0px",
                 left: "0px",
             }}
         >
