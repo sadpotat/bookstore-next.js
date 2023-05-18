@@ -42,7 +42,6 @@ export const sendBook = async (book) => {
         author: book.author,
         imageURL: book.imageURL,
         category: book.category,
-        price: book.price,
         details: book.details,
         price: Number(book.price),
         featured: Boolean(book.featured),
@@ -62,4 +61,21 @@ export const getBookFromId = async (id) => {
     }
     const resData = await res.data;
     return resData.book;
+};
+
+export const updateBook = async (id, book) => {
+    const res = await axios.put(`http://localhost:3000/api/book/${id}`, {
+        title: book.title,
+        author: book.author,
+        imageURL: book.imageURL,
+        category: book.category,
+        details: book.details,
+        price: Number(book.price),
+        featured: Boolean(book.featured),
+    });
+    if (res.status !== 200) {
+        return new Error("Database Request Rejected. Unable to Update");
+    }
+    const resData = await res.data;
+    return resData;
 };
