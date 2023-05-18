@@ -15,16 +15,15 @@ export default function Home({ books }) {
         <div
             style={{
                 backgroundColor: "white",
+                height: "100%",
+                minHeight: "100vh",
                 position: "absolute",
                 top: "63px",
                 right: "0px",
-                minHeight: "100vh",
                 left: "0px",
             }}
         >
-            <div style={{ margin: "auto", position: "absolute", top: "5%" }}>
-                <BookList home={true} data={books} />
-            </div>
+            <BookList home={true} data={books} />
         </div>
     );
 }
