@@ -53,30 +53,3 @@ export const sendBook = async (book) => {
     const data = res.book;
     return data;
 };
-
-export const getBookFromId = async (id) => {
-    const res = await axios.get(`http://localhost:3000/api/book/${id}`);
-    if (res.status !== 200) {
-        return new Error("Unable to Fetch Book From Given ID");
-    }
-    const data = await res.data;
-    return data.book;
-};
-
-export const updateBook = async (data) => {
-    const res = await axios.put(`http://localhost:3000/api/book/${id}`, {
-        title: book.title,
-        author: book.author,
-        imageURL: book.imageURL,
-        category: book.category,
-        price: book.price,
-        details: book.details,
-        price: Number(book.price),
-        featured: Boolean(book.featured),
-    });
-    if (res.status !== 200) {
-        return new Error("Unable to Update the Book");
-    }
-    const resData = await res.data;
-    return resData;
-};
