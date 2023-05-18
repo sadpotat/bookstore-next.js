@@ -35,3 +35,21 @@ export const getBookByCategory = async (category) => {
     const booksInCategory = books.filter((book) => book.category === category);
     return booksInCategory;
 };
+
+export const sendBook = async (book) => {
+    const res = await axios.post("http://localhost:3000/api/books", {
+        title: book.title,
+        author: book.author,
+        imageURL: book.imageURL,
+        category: book.category,
+        price: book.price,
+        details: book.details,
+        price: Number(book.price),
+        featured: Boolean(book.featured),
+    });
+    if (res.status !== 201) {
+        return new Error("Database Request Rejected");
+    }
+    const data = res.book;
+    return data;
+};
