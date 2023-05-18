@@ -7,7 +7,7 @@ export default function detailsPage() {
                 backgroundColor: "white",
                 minHeight: "100vh",
                 position: "absolute",
-                top: "50px",
+                top: "63px",
                 right: "0px",
                 left: "0px",
             }}

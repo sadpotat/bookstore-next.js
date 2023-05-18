@@ -53,3 +53,13 @@ export const sendBook = async (book) => {
     const data = res.book;
     return data;
 };
+
+export const getBookFromId = async (id) => {
+    const res = await axios.get(`http://localhost:3000/api/book/${id}`);
+    if (res.status !== 200) {
+        console.log("fetching failed");
+        return new Error("Unable to Fetch Book from ID");
+    }
+    const resData = await res.data;
+    return resData.book;
+};
