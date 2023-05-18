@@ -26,7 +26,7 @@ const BookItem = ({ title, id, author, imageURL, featured, home }) => {
     return (
         <Card
             onClick={() => {
-                router.push(`/books/${id}`);
+                router.push(`/details/${id}`);
             }}
             sx={{
                 width: width,
