@@ -37,7 +37,13 @@ const BookItem = ({ title, id, author, imageURL, featured, home }) => {
                 },
             }}
         >
-            <div style={{ width: "100%", height: "60%", position: "relative" }}>
+            <div
+                style={{
+                    width: "100%",
+                    height: "60%",
+                    position: "relative",
+                }}
+            >
                 {featured && (
                     <div
                         style={{

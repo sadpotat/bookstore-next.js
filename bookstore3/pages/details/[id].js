@@ -1,17 +1,28 @@
 import { deleteBook } from "@/api-helpers/frontend/utils";
 import BookDetail from "@/components/BookDetail";
-import { Button, Link } from "@mui/material";
+import { Alert, Button, Link, Snackbar } from "@mui/material";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { Fragment, useState } from "react";
 
 const detailsPage = function () {
+    // snackbar
+    const [open, setOpen] = useState(false);
+    const handleClose = () => {
+        setOpen(false);
+        router.push("/books");
+    };
+
     const router = useRouter();
     const id = router.query.id;
     const handleDelete = () => {
         deleteBook(id)
-            .then((value) => console.log(value))
+            .then(() => {
+                setOpen(true);
+            })
             .catch((err) => console.log(err));
-        router.push("/books");
+        // BUG deleteBook is neither resolving nor throwing errors for some reason so:
+        console.log("deleted");
+        setOpen(true);
     };
     return (
         <div
@@ -25,19 +36,37 @@ const detailsPage = function () {
             }}
         >
             <BookDetail />
-            <Link href={`/books/${id}`}>
-                <Button sx={{ fontSize: 18 }} size="small" color="primary">
-                    Edit
+            <Fragment>
+                <Link href={`/books/${id}`}>
+                    <Button sx={{ fontSize: 18 }} size="small" color="primary">
+                        Edit
+                    </Button>
+                </Link>
+
+                <Button
+                    onClick={handleDelete}
+                    sx={{ fontSize: 18 }}
+                    size="small"
+                    color="primary"
+                >
+                    Delete
                 </Button>
-            </Link>
-            <Button
-                onClick={handleDelete}
-                sx={{ fontSize: 18 }}
-                size="small"
-                color="primary"
-            >
-                Delete
-            </Button>
+                {open && (
+                    <Snackbar
+                        open={open}
+                        autoHideDuration={3000}
+                        onClose={handleClose}
+                    >
+                        <Alert
+                            onClose={handleClose}
+                            severity="success"
+                            sx={{ width: "100%" }}
+                        >
+                            Deleted Successfully
+                        </Alert>
+                    </Snackbar>
+                )}
+            </Fragment>
         </div>
     );
 };

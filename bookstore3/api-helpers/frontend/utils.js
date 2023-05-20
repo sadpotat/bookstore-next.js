@@ -86,5 +86,6 @@ export const deleteBook = async (id) => {
         return new Error("Unable to Delete");
     }
     const resData = await res.data;
+    console.log(resData);
     return resData;
 };
