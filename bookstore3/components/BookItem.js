@@ -11,7 +11,7 @@ import React from "react";
 
 const BookItem = ({ title, id, author, imageURL, featured, home }) => {
     const router = useRouter();
-    const width = home ? "100%" : "90%";
+    const width = home ? "100%" : "80%";
     const height = home ? "100%" : "90%";
     const typoFontSize = home ? 18 : 16;
     const typoVariant = home ? "h5" : "h6";

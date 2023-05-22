@@ -14,7 +14,7 @@ export default function Home({ books }) {
     return (
         <div
             style={{
-                backgroundColor: "white",
+                backgroundColor: "#e0f2f1",
                 position: "absolute",
                 top: "63px",
                 right: "0px",

@@ -11,9 +11,8 @@ const BookList = ({ data, home }) => {
                     sm={4}
                     md={3}
                     lg={2}
-                    height={home ? "500px" : "300px"}
-                    width={"100%"}
-                    minWidth={home ? "250px" : "150px"}
+                    height={home ? "500px" : "400px"}
+                    width={home ? "250px" : "200px"}
                     item
                     key={book._id}
                 >

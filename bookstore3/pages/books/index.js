@@ -5,7 +5,7 @@ function BooksHome({ books }) {
     return (
         <div
             style={{
-                backgroundColor: "white",
+                backgroundColor: "#e0f2f1",
                 // width: "100%",
                 // height: "100%",
                 // position: "absolute",

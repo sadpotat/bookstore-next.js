@@ -5,7 +5,7 @@ function AddBook() {
     return (
         <div
             style={{
-                backgroundColor: "white",
+                backgroundColor: "#e0f2f1",
                 minHeight: "100vh",
                 position: "absolute",
                 top: "50px",

@@ -24,7 +24,6 @@ export const getFeaturedBooks = async () => {
 // Mystery
 // Science Fiction
 // Young Adult
-// Romance
 
 export const getBookByCategory = async (category) => {
     const books = await getAllBooks();

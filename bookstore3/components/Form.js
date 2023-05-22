@@ -51,7 +51,7 @@ const Form = ({ data, onSubmit }) => {
             style={{
                 maxWidth: "700px",
                 width: "80%",
-                backgroundColor: "#e0f2f1",
+                backgroundColor: "white",
                 paddingLeft: "20px",
                 paddingRight: "20px",
                 paddingBottom: "20px",
