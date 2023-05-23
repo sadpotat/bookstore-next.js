@@ -39,7 +39,7 @@ function BooksHome({ books }) {
                     display: "flex",
                     marginLeft: "75px",
                     marginRight: "125px",
-                    marginTop: "100px",
+                    marginTop: "75px",
                 }}
             >
                 <div style={{ width: "70%" }}>
@@ -56,7 +56,6 @@ function BooksHome({ books }) {
                     <SortBy onSubmit={getSort} />
                 </div>
             </div>
-
             <BookList data={booklist} />
         </div>
     );

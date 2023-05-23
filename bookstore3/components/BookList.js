@@ -4,7 +4,13 @@ import BookItem from "./BookItem";
 
 const BookList = ({ data, home }) => {
     return (
-        <Grid padding={10} spacing={2} container>
+        <Grid
+            paddingLeft={10}
+            paddingRight={10}
+            paddingTop={5}
+            spacing={2}
+            container
+        >
             {data.map((book) => (
                 <Grid
                     xs={6}

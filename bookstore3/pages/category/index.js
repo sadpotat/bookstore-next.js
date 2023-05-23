@@ -77,7 +77,7 @@ function Categories({ books }) {
                     display: "flex",
                     marginLeft: "75px",
                     marginRight: "125px",
-                    marginTop: "100px",
+                    marginTop: "75px",
                 }}
             >
                 <div style={{ width: "70%" }}>

@@ -71,7 +71,7 @@ const Form = ({ data, onSubmit }) => {
                 paddingTop={6}
                 textAlign={"center"}
             >
-                {data ? "Book Detail" : "Add Book"}
+                {data ? "Edit Properties" : "Add to Catalog"}
             </Typography>
             <Box padding={2} display="flex" flexDirection="column">
                 <FormLabel sx={labelSx}>Title</FormLabel>
