@@ -2,6 +2,14 @@ import { getAllBooks } from "@/api-helpers/frontend/utils";
 import BookList from "@/components/BookList";
 
 function BooksHome({ books }) {
+    const sortByName = (books) => {
+        let sorted = [...books].sort((a, b) => {
+            let fa = a.title.toLowerCase(),
+                fb = b.title.toLowerCase();
+            return fa < fb ? -1 : 1;
+        });
+        return sorted;
+    };
     return (
         <div
             style={{
@@ -14,7 +22,7 @@ function BooksHome({ books }) {
                 // right: "10%",
             }}
         >
-            <BookList data={books} />
+            <BookList data={sortByName(books)} />
         </div>
     );
 }
