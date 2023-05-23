@@ -1,10 +1,10 @@
-import BookDetail from "@/components/Edit";
+import Edit from "@/components/Edit";
 
 export default function detailsPage() {
     return (
         <div
             style={{
-                backgroundColor: "white",
+                backgroundColor: "#e0f2f1",
                 minHeight: "100vh",
                 position: "absolute",
                 top: "63px",
@@ -12,7 +12,7 @@ export default function detailsPage() {
                 left: "0px",
             }}
         >
-            <BookDetail />
+            <Edit />
         </div>
     );
 }
