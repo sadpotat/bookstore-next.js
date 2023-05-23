@@ -23,6 +23,7 @@ const BookList = ({ data, home }) => {
                         id={book._id}
                         imageURL={book.imageURL}
                         featured={book.featured}
+                        price={book.price}
                     />
                 </Grid>
             ))}
