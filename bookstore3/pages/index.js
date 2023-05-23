@@ -22,7 +22,22 @@ export default function Home({ books }) {
                 left: "0px",
             }}
         >
-            <div style={{ margin: "auto", position: "absolute", top: "5%" }}>
+            <h1
+                style={{
+                    margin: "75px",
+                    marginBottom: 0,
+                    fontSize: "40px",
+                }}
+            >
+                Last Month's Best Sellers in Every Category
+            </h1>
+            <div
+                style={{
+                    marginTop: 0,
+                    display: "flex",
+                    justifyContent: "center",
+                }}
+            >
                 <BookList home={true} data={books} />
             </div>
         </div>

@@ -1,4 +1,9 @@
-import { getBookFromId } from "@/api-helpers/frontend/utils";
+import sortByName from "@/api-helpers/frontend/sortingFunctions";
+import {
+    getAllBooks,
+    getBookByCategory,
+    getBookFromId,
+} from "@/api-helpers/frontend/utils";
 import BookList from "@/components/BookList";
 import {
     Divider,
@@ -6,17 +11,25 @@ import {
     List,
     ListItem,
     ListItemButton,
-    ListItemIcon,
     ListItemText,
     Toolbar,
+    Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
+export const getStaticProps = async () => {
+    const books = await getAllBooks();
+    return {
+        props: {
+            books,
+        },
+    };
+};
+
 function Categories({ books }) {
     const router = useRouter();
-    const id = router.query.id;
-    const drawerWidth = 240;
+    const drawerWidth = "10%";
     const category = [
         "Adventure",
         "Fiction",
@@ -25,7 +38,12 @@ function Categories({ books }) {
         "Young Adult",
     ];
     const [selectedIndex, setSelectedIndex] = useState(0);
-
+    const [bookList, setBookList] = useState(books);
+    useEffect(() => {
+        getBookByCategory(category[selectedIndex])
+            .then((data) => setBookList(data))
+            .catch((err) => console.log(err));
+    }, [selectedIndex]);
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
     };
@@ -34,13 +52,20 @@ function Categories({ books }) {
             style={{
                 backgroundColor: "#e0f2f1",
                 position: "absolute",
-                top: "63px",
+                top: "50px",
                 right: "0px",
-                bottom: "0px",
-                left: "0px",
+                left: "10%",
+                minHeight: "100vh",
             }}
         >
-            <h1 style={{ color: "black" }}>Book categories</h1>
+            <h1
+                style={{
+                    paddingLeft: "75px",
+                    paddingTop: "100px",
+                }}
+            >
+                Products in the {category[selectedIndex]} Genre
+            </h1>
             <Drawer
                 variant="permanent"
                 sx={{
@@ -54,7 +79,12 @@ function Categories({ books }) {
             >
                 <Toolbar />
                 <Divider />
-                <List>
+
+                <List
+                    sx={{
+                        marginTop: "30%",
+                    }}
+                >
                     {category.map((text, index) => (
                         <ListItem key={text} disablePadding>
                             <ListItemButton
@@ -69,7 +99,7 @@ function Categories({ books }) {
                     ))}
                 </List>
             </Drawer>
-            {/* <BookList data={sortByName(books)} /> */}
+            <BookList data={sortByName(bookList)} />
         </div>
     );
 }

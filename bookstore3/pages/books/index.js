@@ -15,14 +15,23 @@ function BooksHome({ books }) {
         <div
             style={{
                 backgroundColor: "#e0f2f1",
-                // width: "100%",
-                // height: "100%",
-                // position: "absolute",
-                // top: "5%",
-                // left: "10%",
-                // right: "10%",
+                backgroundColor: "#e0f2f1",
+                minHeight: "100vh",
+                position: "absolute",
+                top: "63px",
+                right: "0px",
+                left: "0px",
             }}
         >
+            <h1
+                style={{
+                    marginLeft: "75px",
+                    marginTop: "75px",
+                    fontSize: "40px",
+                }}
+            >
+                Our Catalog
+            </h1>
             <BookList data={sortByName(books)} />
         </div>
     );
