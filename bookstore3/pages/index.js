@@ -26,7 +26,8 @@ export default function Home({ books }) {
                 style={{
                     margin: "75px",
                     marginBottom: 0,
-                    fontSize: "40px",
+                    display: "flex",
+                    justifyContent: "center",
                 }}
             >
                 Last Month's Best Sellers in Every Category

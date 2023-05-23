@@ -75,14 +75,22 @@ function Categories({ books }) {
             <div
                 style={{
                     display: "flex",
-                    paddingLeft: "75px",
-                    paddingTop: "100px",
+                    marginLeft: "75px",
+                    marginRight: "125px",
+                    marginTop: "100px",
                 }}
             >
                 <div style={{ width: "70%" }}>
                     <h1>Products in the {category[selectedIndex]} Genre</h1>
                 </div>
-                <div style={{ width: "30%", margin: "auto" }}>
+                <div
+                    style={{
+                        width: "30%",
+                        margin: "auto",
+                        display: "flex",
+                        justifyContent: "end",
+                    }}
+                >
                     <SortBy onSubmit={getSort} />
                 </div>
             </div>

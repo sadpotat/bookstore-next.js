@@ -37,22 +37,22 @@ function BooksHome({ books }) {
             <div
                 style={{
                     display: "flex",
-                    paddingLeft: "75px",
-                    paddingTop: "100px",
+                    marginLeft: "75px",
+                    marginRight: "125px",
+                    marginTop: "100px",
                 }}
             >
                 <div style={{ width: "70%" }}>
-                    <h1
-                        style={{
-                            marginLeft: "75px",
-                            marginTop: "75px",
-                            fontSize: "40px",
-                        }}
-                    >
-                        Our Catalog
-                    </h1>
+                    <h1>Our Catalog</h1>
                 </div>
-                <div style={{ width: "30%", margin: "auto" }}>
+                <div
+                    style={{
+                        width: "30%",
+                        margin: "auto",
+                        display: "flex",
+                        justifyContent: "end",
+                    }}
+                >
                     <SortBy onSubmit={getSort} />
                 </div>
             </div>
