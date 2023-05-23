@@ -1,8 +1,8 @@
-import { deleteBook } from "@/api-helpers/frontend/utils";
+import { deleteBook, getBookFromId } from "@/api-helpers/frontend/utils";
 import BookDetail from "@/components/BookDetail";
 import { Alert, Button, Link, Snackbar } from "@mui/material";
 import { useRouter } from "next/router";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 const detailsPage = function () {
     // snackbar
@@ -14,6 +14,7 @@ const detailsPage = function () {
 
     const router = useRouter();
     const id = router.query.id;
+
     const handleDelete = () => {
         deleteBook(id)
             .then(() => {
@@ -27,7 +28,7 @@ const detailsPage = function () {
     return (
         <div
             style={{
-                backgroundColor: "white",
+                backgroundColor: "#e0f2f1",
                 position: "absolute",
                 top: "63px",
                 right: "0px",
@@ -36,37 +37,52 @@ const detailsPage = function () {
             }}
         >
             <BookDetail />
-            <Fragment>
-                <Link href={`/books/${id}`}>
-                    <Button sx={{ fontSize: 18 }} size="small" color="primary">
-                        Edit
-                    </Button>
-                </Link>
-
-                <Button
-                    onClick={handleDelete}
-                    sx={{ fontSize: 18 }}
-                    size="small"
-                    color="primary"
-                >
-                    Delete
-                </Button>
-                {open && (
-                    <Snackbar
-                        open={open}
-                        autoHideDuration={3000}
-                        onClose={handleClose}
-                    >
-                        <Alert
-                            onClose={handleClose}
-                            severity="success"
-                            sx={{ width: "100%" }}
+            <div
+                style={{
+                    width: "10%",
+                    marginRight: "auto",
+                    position: "absolute",
+                    right: "10%",
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                }}
+            >
+                <Fragment>
+                    <Link href={`/books/${id}`}>
+                        <Button
+                            sx={{ fontSize: 18 }}
+                            size="small"
+                            color="primary"
                         >
-                            Deleted Successfully
-                        </Alert>
-                    </Snackbar>
-                )}
-            </Fragment>
+                            Edit
+                        </Button>
+                    </Link>
+
+                    <Button
+                        onClick={handleDelete}
+                        sx={{ fontSize: 18 }}
+                        size="small"
+                        color="primary"
+                    >
+                        Delete
+                    </Button>
+                    {open && (
+                        <Snackbar
+                            open={open}
+                            autoHideDuration={3000}
+                            onClose={handleClose}
+                        >
+                            <Alert
+                                onClose={handleClose}
+                                severity="success"
+                                sx={{ width: "100%" }}
+                            >
+                                Deleted Successfully
+                            </Alert>
+                        </Snackbar>
+                    )}
+                </Fragment>
+            </div>
         </div>
     );
 };
