@@ -1,16 +1,27 @@
+import sortByTitle, {
+    sortByAuthor,
+    sortByPrice,
+} from "@/api-helpers/frontend/sortingFunctions";
 import sortByName from "@/api-helpers/frontend/sortingFunctions";
-import { getAllBooks } from "@/api-helpers/frontend/utils";
+import { getAllBooks, getBookByCategory } from "@/api-helpers/frontend/utils";
 import BookList from "@/components/BookList";
+import SortBy from "@/components/SortBy";
+import { useEffect, useState } from "react";
 
 function BooksHome({ books }) {
-    // const sortByName = (books) => {
-    //     let sorted = [...books].sort((a, b) => {
-    //         let fa = a.title.toLowerCase(),
-    //             fb = b.title.toLowerCase();
-    //         return fa < fb ? -1 : 1;
-    //     });
-    //     return sorted;
-    // };
+    const [booklist, setBookList] = useState(books);
+    const [sortChoice, setSortChoice] = useState("Title");
+    useEffect(() => {
+        let sortedData;
+        if (sortChoice === "Title") sortedData = sortByTitle(books);
+        if (sortChoice === "Author") sortedData = sortByAuthor(books);
+        if (sortChoice === "Price") sortedData = sortByPrice(books);
+        setBookList(sortedData);
+    }, [sortChoice]);
+    const getSort = (data) => {
+        setSortChoice(data);
+    };
+
     return (
         <div
             style={{
@@ -23,16 +34,30 @@ function BooksHome({ books }) {
                 left: "0px",
             }}
         >
-            <h1
+            <div
                 style={{
-                    marginLeft: "75px",
-                    marginTop: "75px",
-                    fontSize: "40px",
+                    display: "flex",
+                    paddingLeft: "75px",
+                    paddingTop: "100px",
                 }}
             >
-                Our Catalog
-            </h1>
-            <BookList data={sortByName(books)} />
+                <div style={{ width: "70%" }}>
+                    <h1
+                        style={{
+                            marginLeft: "75px",
+                            marginTop: "75px",
+                            fontSize: "40px",
+                        }}
+                    >
+                        Our Catalog
+                    </h1>
+                </div>
+                <div style={{ width: "30%", margin: "auto" }}>
+                    <SortBy onSubmit={getSort} />
+                </div>
+            </div>
+
+            <BookList data={booklist} />
         </div>
     );
 }
