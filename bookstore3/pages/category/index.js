@@ -1,4 +1,5 @@
 import { getBookFromId } from "@/api-helpers/frontend/utils";
+import BookList from "@/components/BookList";
 import {
     Divider,
     Drawer,
@@ -10,12 +11,24 @@ import {
     Toolbar,
 } from "@mui/material";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-function Categories() {
+function Categories({ books }) {
     const router = useRouter();
     const id = router.query.id;
     const drawerWidth = 240;
+    const category = [
+        "Adventure",
+        "Fiction",
+        "Mystery",
+        "Science Fiction",
+        "Young Adult",
+    ];
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
+    const handleListItemClick = (event, index) => {
+        setSelectedIndex(index);
+    };
     return (
         <div
             style={{
@@ -42,27 +55,21 @@ function Categories() {
                 <Toolbar />
                 <Divider />
                 <List>
-                    {["Inbox", "Starred", "Send email", "Drafts"].map(
-                        (text, index) => (
-                            <ListItem key={text} disablePadding>
-                                <ListItemButton>
-                                    <ListItemText primary={text} />
-                                </ListItemButton>
-                            </ListItem>
-                        )
-                    )}
-                </List>
-                <Divider />
-                <List>
-                    {["All mail", "Trash", "Spam"].map((text, index) => (
+                    {category.map((text, index) => (
                         <ListItem key={text} disablePadding>
-                            <ListItemButton>
+                            <ListItemButton
+                                selected={selectedIndex === index}
+                                onClick={(event) =>
+                                    handleListItemClick(event, index)
+                                }
+                            >
                                 <ListItemText primary={text} />
                             </ListItemButton>
                         </ListItem>
                     ))}
                 </List>
             </Drawer>
+            {/* <BookList data={sortByName(books)} /> */}
         </div>
     );
 }

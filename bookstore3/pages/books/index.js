@@ -1,15 +1,16 @@
+import sortByName from "@/api-helpers/frontend/sortingFunctions";
 import { getAllBooks } from "@/api-helpers/frontend/utils";
 import BookList from "@/components/BookList";
 
 function BooksHome({ books }) {
-    const sortByName = (books) => {
-        let sorted = [...books].sort((a, b) => {
-            let fa = a.title.toLowerCase(),
-                fb = b.title.toLowerCase();
-            return fa < fb ? -1 : 1;
-        });
-        return sorted;
-    };
+    // const sortByName = (books) => {
+    //     let sorted = [...books].sort((a, b) => {
+    //         let fa = a.title.toLowerCase(),
+    //             fb = b.title.toLowerCase();
+    //         return fa < fb ? -1 : 1;
+    //     });
+    //     return sorted;
+    // };
     return (
         <div
             style={{
