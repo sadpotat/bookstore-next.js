@@ -22,9 +22,10 @@ const Header = () => {
     };
     return (
         <AppBar
-            position="sticky"
+            position="fixed"
             sx={{
                 bgcolor: "#00897b",
+                zIndex: (theme) => theme.zIndex.drawer + 1,
             }}
         >
             <Toolbar>
