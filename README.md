@@ -141,7 +141,7 @@ The `DELETE` button at the bottom of the `details/{id}` page sends a DELETE requ
 
 Redirects to the All Books page which now does not contain the deleted book:
 
-<!-- <img src="https://github.com/sadpotat/bookstore-next.js/blob/main/for_readme/Deleted.JPG?raw=true"> -->
+<img src="https://github.com/sadpotat/bookstore-next.js/blob/main/for_readme/Deleted.JPG?raw=true">
   
 </details>
 
