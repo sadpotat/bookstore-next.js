@@ -1,10 +1,14 @@
-import sortByName from "@/api-helpers/frontend/sortingFunctions";
+import sortByTitle, {
+    sortByAuthor,
+    sortByPrice,
+} from "@/api-helpers/frontend/sortingFunctions";
 import {
     getAllBooks,
     getBookByCategory,
     getBookFromId,
 } from "@/api-helpers/frontend/utils";
 import BookList from "@/components/BookList";
+import SortBy from "@/components/SortBy";
 import {
     Divider,
     Drawer,
@@ -39,11 +43,21 @@ function Categories({ books }) {
     ];
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [bookList, setBookList] = useState(books);
+    const [sortChoice, setSortChoice] = useState("Title");
     useEffect(() => {
+        let sortedData;
         getBookByCategory(category[selectedIndex])
-            .then((data) => setBookList(data))
+            .then((data) => {
+                if (sortChoice === "Title") sortedData = sortByTitle(data);
+                if (sortChoice === "Author") sortedData = sortByAuthor(data);
+                if (sortChoice === "Price") sortedData = sortByPrice(data);
+                setBookList(sortedData);
+            })
             .catch((err) => console.log(err));
-    }, [selectedIndex]);
+    }, [selectedIndex, sortChoice]);
+    const getSort = (data) => {
+        setSortChoice(data);
+    };
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
     };
@@ -58,14 +72,20 @@ function Categories({ books }) {
                 minHeight: "100vh",
             }}
         >
-            <h1
+            <div
                 style={{
+                    display: "flex",
                     paddingLeft: "75px",
                     paddingTop: "100px",
                 }}
             >
-                Products in the {category[selectedIndex]} Genre
-            </h1>
+                <div style={{ width: "70%" }}>
+                    <h1>Products in the {category[selectedIndex]} Genre</h1>
+                </div>
+                <div style={{ width: "30%", margin: "auto" }}>
+                    <SortBy onSubmit={getSort} />
+                </div>
+            </div>
             <Drawer
                 variant="permanent"
                 sx={{
@@ -99,7 +119,7 @@ function Categories({ books }) {
                     ))}
                 </List>
             </Drawer>
-            <BookList data={sortByName(bookList)} />
+            <BookList data={bookList} />
         </div>
     );
 }
