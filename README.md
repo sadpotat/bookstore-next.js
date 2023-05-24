@@ -25,23 +25,24 @@ Next, run the development environment:
 $ npm run dev
 ```
 
-Now navigate to "http://localhost:3000" on any browser and you should see the site.
+Now navigate to http://localhost:3000 on any browser and you should see the site.
 
 </br>
 
 # The Backend
 
-The entire database is hosted on MongoDB. All daabase requests are sent using the [Axios package](https://axios-http.com/).
+The entire database is hosted on **MongoDB**. All database requests are sent using the [Axios package](https://axios-http.com/).
 
-I am currently hosting the project's data on my own MongoDB account. The uploaded files already contain a userID and password for connecting to the cluster. So for now, you will not need your own MongoDB account for running this project. 
+I am currently hosting the project's data on my own MongoDB account. The uploaded files already contain a user and password for connecting to the collection. So for now, you will not need your own MongoDB account for running this project. **However, this account only has `find` permissions for the collection, so the `ADD`, `EDIT` and `DELETE` features will not work for you.**
 
-If you are unable to connect, that might mean that I am no longer hosting the database. In that case, you will need a [MongoDB account](https://www.mongodb.com/cloud/atlas/register) to host your data. For reference, I have a copy of the database at `bookstore3/sample_db.json`.
+If you are unable to connect, that might mean that I am no longer hosting the database. In that case, you will need a [MongoDB account](https://www.mongodb.com/cloud/atlas/register) to host your data. For reference, I have a copy of the collection containing book data at `bookstore3/sample_db.json`.
 
 </br>
 
 # The Frontend
 
-The user interface uses Material UI.
+The user interface uses **Material UI**.
+
 
 ## Home
 
@@ -57,10 +58,11 @@ The user interface uses Material UI.
 
 ## Details
 
-Here, the browser tab was zoomed out to capture all elements in the screenshot.
+Here, the browser tab was zoomed out to capture all elements in the page.
 
 <img src="https://github.com/sadpotat/bookstore-next.js/blob/main/for_readme/BookDetail.JPG?raw=true">
 
+</br>
 
 # Features
 
@@ -157,3 +159,17 @@ Some other features I have planned are:
 - Store/modify User information in a separate collection
 - Shopping cart
 - Payment methods
+
+</br>
+
+# Credits
+
+- Book data
+  - [Adventure](https://reedsy.com/discovery/blog/best-adventure-books)
+  - [Fiction](https://www.goodreads.com/shelf/show/top-10-fiction)
+  - [Mystery](https://reedsy.com/discovery/blog/best-mystery-books)
+  - [Science Fiction](https://www.panmacmillan.com/blogs/science-fiction-and-fantasy/best-new-science-fiction-books#best-scifi-books-of-all-time)
+  - [Young Adult](https://reedsy.com/discovery/blog/young-adult-books)
+- Animations
+  - Book cover hover effect: [@yoann-b on Codepen](https://codepen.io/yoann-b/pens/public?cursor=ZD0xJm89MCZwPTEmdj01NzI0NjIzMg==)
+
