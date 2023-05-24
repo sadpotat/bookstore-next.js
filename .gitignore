@@ -3,3 +3,4 @@ node_modules*
 bookstore3/test.csv
 bookstore3/test.py
 bookstore3/urls_to_take_data_from.txt
+bookstore3/api-helpers/credentials.json
