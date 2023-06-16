@@ -10,7 +10,7 @@ import BookList from "@/components/BookList";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ books }) {
+function Home({ books }) {
     return (
         <div
             style={{
@@ -30,7 +30,7 @@ export default function Home({ books }) {
                     justifyContent: "center",
                 }}
             >
-                Last Month's Best Sellers in Every Category
+                Last Month&apos;s Best Sellers in Every Category
             </h1>
             <div
                 style={{
@@ -45,7 +45,20 @@ export default function Home({ books }) {
     );
 }
 
-export const getStaticProps = async () => {
+export default Home;
+// for development only:
+// getStaticProps is only clled once when the application in built, will not work in production
+// also in production, cannot call the application's api inside the application, the api needs to be hosted on a different server
+// because the api routes won't be available during build time
+// export const getStaticProps = async () => {
+//     const books = await getFeaturedBooks();
+//     return {
+//         props: {
+//             books,
+//         },
+//     };
+// };
+export const getServerSideProps = async () => {
     const books = await getFeaturedBooks();
     return {
         props: {
