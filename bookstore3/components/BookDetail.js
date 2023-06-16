@@ -1,5 +1,6 @@
 import { getBookFromId } from "@/api-helpers/frontend/utils";
-import { Padding } from "@mui/icons-material";
+// import { Padding } from "@mui/icons-material";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -28,6 +29,7 @@ const BookDetail = function () {
                                 src={details.imageURL}
                                 width={"100%"}
                                 heigth={"100%"}
+                                alt="Book"
                             ></img>
                         </div>
                     </div>

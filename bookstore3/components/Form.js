@@ -90,7 +90,7 @@ const Form = ({ data, onSubmit }) => {
                     margin="normal"
                     color="success"
                 />
-                <FormLabel sx={labelSx}>URL to the book's cover</FormLabel>
+                <FormLabel sx={labelSx}>URL to the book&apos;s cover</FormLabel>
                 <TextField
                     onChange={handleChange}
                     value={inputs.imageURL}
