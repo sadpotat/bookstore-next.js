@@ -4,7 +4,7 @@ import { Alert, Button, Link, Snackbar } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { Fragment, useEffect, useState } from "react";
 
-const detailsPage = function () {
+const DetailsPage = function () {
     // snackbar
     const [open, setOpen] = useState(false);
     const handleClose = () => {
@@ -87,4 +87,4 @@ const detailsPage = function () {
     );
 };
 
-export default detailsPage;
+export default DetailsPage;
