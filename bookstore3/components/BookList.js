@@ -5,6 +5,7 @@ import BookItem from "./BookItem";
 const BookList = ({ data, home }) => {
     return (
         <Grid
+            justifyContent={home ? "center" : ""}
             paddingLeft={10}
             paddingRight={10}
             paddingTop={5}
